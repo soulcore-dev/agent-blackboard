@@ -1,0 +1,107 @@
+{
+  "created": "2026-04-04T04:18:10.717Z",
+  "version": "2.0",
+  "config": {
+    "maxRetries": 2
+  },
+  "tasks": [
+    {
+      "name": "marco-test",
+      "depends": [],
+      "agent": "agent-1",
+      "status": "done",
+      "claimedAt": "2026-04-04T04:18:35.438Z",
+      "doneAt": "2026-04-04T04:20:24.599Z",
+      "duration": 109,
+      "message": "marco-test complete",
+      "retries": 0,
+      "validated": false,
+      "validatedBy": null
+    },
+    {
+      "name": "marco-docs",
+      "depends": [],
+      "agent": "agent-2",
+      "status": "done",
+      "claimedAt": "2026-04-04T04:18:42.332Z",
+      "doneAt": "2026-04-04T04:21:05.726Z",
+      "duration": 143,
+      "message": "marco-docs complete",
+      "retries": 0,
+      "validated": false,
+      "validatedBy": null
+    }
+  ],
+  "notes": [
+    {
+      "time": "04:20:20",
+      "agent": "agent-1",
+      "task": "marco-test",
+      "message": "MARCO_TEORICO written with 8 sections and 5 mermaid diagrams"
+    },
+    {
+      "time": "04:21:00",
+      "agent": "agent-2",
+      "task": "marco-docs",
+      "message": "MARCO_TEORICO written with 8 sections and 5 mermaid diagrams"
+    }
+  ],
+  "logs": [
+    {
+      "time": "04:18:35",
+      "agent": "agent-1",
+      "action": "claim",
+      "task": "marco-test"
+    },
+    {
+      "time": "04:18:42",
+      "agent": "agent-2",
+      "action": "claim",
+      "task": "marco-docs"
+    },
+    {
+      "time": "04:20:20",
+      "agent": "agent-1",
+      "action": "note",
+      "task": "marco-test",
+      "message": "MARCO_TEORICO written with 8 sections and 5 mermaid diagrams"
+    },
+    {
+      "time": "04:20:24",
+      "agent": "agent-1",
+      "action": "done",
+      "task": "marco-test",
+      "message": "marco-test complete",
+      "duration": 109
+    },
+    {
+      "time": "04:21:00",
+      "agent": "agent-2",
+      "action": "note",
+      "task": "marco-docs",
+      "message": "MARCO_TEORICO written with 8 sections and 5 mermaid diagrams"
+    },
+    {
+      "time": "04:21:05",
+      "agent": "agent-2",
+      "action": "done",
+      "task": "marco-docs",
+      "message": "marco-docs complete",
+      "duration": 143
+    }
+  ],
+  "agents": {
+    "agent-1": {
+      "claimed": 1,
+      "done": 1,
+      "failed": 0,
+      "totalTime": 109
+    },
+    "agent-2": {
+      "claimed": 1,
+      "done": 1,
+      "failed": 0,
+      "totalTime": 143
+    }
+  }
+}
