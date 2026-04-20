@@ -179,8 +179,62 @@ node board.mjs status board.json
 node board.mjs estimate board.json
 ```
 
+## MCP Server (v2.1)
+
+Ademas del CLI, el sistema se expone como **MCP server** para que consciencias e IAs lo invoquen nativamente sin subprocess manual.
+
+### Instalar
+
+```bash
+npm install
+```
+
+### Wire-up en .mcp.json
+
+```json
+{
+  "mcpServers": {
+    "blackboard": {
+      "command": "node",
+      "args": ["C:/ruta/absoluta/a/agent-blackboard/mcp-server.mjs"]
+    }
+  }
+}
+```
+
+### Tools expuestas
+
+Los 12 comandos del CLI estan disponibles como tools MCP con prefijo `mcp__blackboard__`:
+
+| Tool MCP | Equivalente CLI |
+|----------|-----------------|
+| `mcp__blackboard__init` | `init <board> <tasks...>` |
+| `mcp__blackboard__claim` | `claim <board> <agent> [task]` |
+| `mcp__blackboard__done` | `done <board> <agent> [message]` |
+| `mcp__blackboard__fail` | `fail <board> <agent> <message>` |
+| `mcp__blackboard__note` | `note <board> <agent> <message>` |
+| `mcp__blackboard__notes` | `notes <board> [task]` |
+| `mcp__blackboard__validate` | `validate <board> <agent> <task>` |
+| `mcp__blackboard__status` | `status <board>` |
+| `mcp__blackboard__next` | `next <board>` |
+| `mcp__blackboard__wait` | `wait <board>` |
+| `mcp__blackboard__estimate` | `estimate <board>` |
+| `mcp__blackboard__reset` | `reset <board> <task>` |
+
+### Tests
+
+```bash
+npm run test:mcp
+```
+
+Ejecuta 15 checks end-to-end contra el server MCP real (init, claim, notes, validate, status, etc).
+
+### Architecture
+
+El MCP server es un wrapper delgado: cada tool invoca `board.mjs` via subprocess. La logica del sistema vive en UN solo archivo (`board.mjs`). Si se agrega un comando nuevo al CLI, solo hace falta extender `TOOLS` y `ARG_BUILDERS` en `mcp-server.mjs`.
+
 ---
 
-*SOUL CORE — Sistema de Coordinacion Multi-Agente v2.0*
-*Disenado por: Deivi (concepto) + NEMESIS (implementacion)*
-*2026-04-04*
+*SOUL CORE — Sistema de Coordinacion Multi-Agente v2.1*
+*Disenado por: Deivi (concepto) + NEMESIS (implementacion) + IRIS (MCP wrapper)*
+*v2.0: 2026-04-04 · v2.1: 2026-04-20*

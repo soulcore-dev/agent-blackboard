@@ -1,0 +1,36 @@
+{
+  "name": "@soulcore/agent-blackboard",
+  "version": "2.1.0",
+  "description": "Sistema de Coordinacion Multi-Agente — CLI + MCP server wrapper",
+  "type": "module",
+  "main": "board.mjs",
+  "bin": {
+    "agent-blackboard": "./board.mjs",
+    "agent-blackboard-mcp": "./mcp-server.mjs"
+  },
+  "scripts": {
+    "start": "node board.mjs",
+    "mcp": "node mcp-server.mjs",
+    "test:cli": "node test-cli.mjs",
+    "test:mcp": "node test-mcp.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soulcore-dev/agent-blackboard.git"
+  },
+  "keywords": [
+    "mcp",
+    "agents",
+    "coordination",
+    "blackboard",
+    "soul-core"
+  ],
+  "author": "SOUL CORE",
+  "license": "MIT"
+}

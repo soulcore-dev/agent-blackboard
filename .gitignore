@@ -1,1 +1,6 @@
-*.json
+node_modules/
+.test-board.json
+*.log
+.DS_Store
+# Keep package.json + benchmark-result.json, ignore test boards
+.*-board.json
